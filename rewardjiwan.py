@@ -28,7 +28,7 @@ from selenium.webdriver.firefox.webdriver import FirefoxProfile
 from random import randint
 import random
 
-emails = {"jiwan.ninglekhu@hotmail.com": "Sanantonio123", "jacklimbu@hotmail.com": "meromanju1", "rozy_limbu@hotmail.com":"limbu123", "rosielimbu@hotmail.com":"limbu123", "joaanmillion@outlook.com":"limbu123"}
+emails = {"yourlogin": "password"} 
 
 for key, value in emails.iteritems():
 	count = 0
@@ -74,7 +74,7 @@ for key, value in emails.iteritems():
 		randstr = str(randnum)
 		randnum1 = randnum + 237647536
 		randstrplus = str(randnum1)
-		sword = randstr + "Number  "+ randstr + " and " +  randstrplus
+		sword = randstr + " Number  "+ randstr + " and " +  randstrplus
 
 		elem = driver.find_element_by_name("q")
 		#elem.send_keys("valeove yours")
@@ -213,7 +213,7 @@ print "------------------ STARTING MOBILE SEARCH ------------"
 for key, value in emails.iteritems():
 	count = 0
 	time.sleep(5)
-	profile = FirefoxProfile("/Users/jiwanninglekhu/Documents/python/RewardJiwan/foxjiwan")
+	profile = FirefoxProfile("your firefox browser profile")
 	driver = webdriver.Firefox(profile)
 	print "Browser fired-up!"
 	driver.implicitly_wait(5)
@@ -247,13 +247,13 @@ for key, value in emails.iteritems():
 	time.sleep(2)
 	word_file = "/usr/share/dict/words"
 	while True:
-		def random_line(afile):
-    			line = next(afile)
-    			for num, aline in enumerate(afile):
-      				if random.randrange(num + 2): 
-      					continue
-      					line = aline
-    			return line
+		# def random_line(afile):
+  #   			line = next(afile)
+  #   			for num, aline in enumerate(afile):
+  #     				if random.randrange(num + 2): 
+  #     					continue
+  #     					line = aline
+  #   			return line
 		
 		randnum = randint(0, 110000)
 		randstr = str(randnum)
@@ -264,12 +264,9 @@ for key, value in emails.iteritems():
 		# WORDS = open(word_file).read().splitlines()
 		# print WORDS
 		elem = driver.find_element_by_id("sb_form_q")
-		#elem.send_keys(sword)
-		#elem.submit()
+		
 		elem.send_keys(sword, Keys.RETURN)
 
-		#elem.send_keys(Keys.RETURN)
-		#assert "No results found." not in driver.page_source
 		count = count+1
 		time.sleep(2)
 		driver.find_element_by_id("sb_form_q").clear()
